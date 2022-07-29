@@ -14,7 +14,7 @@ spec:
         app: vote-ui
     spec:
       containers:
-      - image: docker.io/okapetanios/vote:
+      - image: docker.io/okapetanios/vote:5b09b18bf1f259d3ed6b962a94e7be5aba94b1e9
         name: vote-ui
         ports:
         - containerPort: 80

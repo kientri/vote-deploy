@@ -1,4 +1,5 @@
 node {
+    def DOCKERTAG
     def app
 
     stage('Clone repository') {

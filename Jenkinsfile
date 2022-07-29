@@ -1,5 +1,6 @@
 node {
     def DOCKERTAG
+    DOCKERTAG = DOCKERTAG
     def app
 
     stage('Clone repository') {

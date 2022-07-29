@@ -1,6 +1,4 @@
 node {
-    def DOCKERTAG
-    DOCKERTAG = DOCKERTAG
     def app
 
     stage('Clone repository') {
@@ -18,7 +16,7 @@ node {
                         sh "git config user.name Eric"
                         sh "git switch master"
                         sh "cat vote-ui-deployment.yaml"
-                        sh "sed -i 's+okapetanios/vote.*+okapetanios/vote:${DOCKERTAG}+g' vote-ui-deployment.yaml"
+                        sh "sed -i 's+okapetanios/vote.*+okapetanios/vote:${env.GIT_COMMIT}+g' vote-ui-deployment.yaml"
                         sh "cat vote-ui-deployment.yaml"
                         sh "git add ."
                         sh "git commit -m 'Done by Jenkins Job deployment: ${env.BUILD_NUMBER}'"

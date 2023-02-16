@@ -9,7 +9,9 @@ pipeline {
                 
                 script {
                     catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                        sh "cat vote-ui-deployment.yaml"
+                        withCredentials([usernamePassword(credentialsId: 'github-authen-token', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+                            sh "cat vote-ui-deployment.yaml"
+                        }
                     }
                 }
             }

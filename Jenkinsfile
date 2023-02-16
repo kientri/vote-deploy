@@ -10,6 +10,8 @@ pipeline {
                 script {
                     catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                         withCredentials([usernamePassword(credentialsId: 'github-authen-token', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+                            sh "git config user.email tonyaom@gmail.com"
+                            sh "git config user.name Tony"
                             sh "cat vote-ui-deployment.yaml"
                         }
                     }

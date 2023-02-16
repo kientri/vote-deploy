@@ -17,7 +17,7 @@ pipeline {
                             sh "cat vote-ui-deployment.yaml"
                             sh "git add ."
                             sh "git commit -m 'Done by Jenkins Job deployment: ${env.BUILD_NUMBER}'"
-                            sh "echo {GIT_USERNAME} {GIT_PASSWORD}"
+                            sh "echo ${GIT_USERNAME} ${GIT_PASSWORD}"
                         }
                     }
                 }

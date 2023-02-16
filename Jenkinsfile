@@ -15,6 +15,9 @@ pipeline {
                             sh "cat vote-ui-deployment.yaml"
                             sh "sed -i 's+tonyaom/vote.*+tonyaom/vote:${DOCKERTAG}+g' vote-ui-deployment.yaml"
                             sh "cat vote-ui-deployment.yaml"
+                            sh "git add ."
+                            sh "git commit -m 'Done by Jenkins Job deployment: ${env.BUILD_NUMBER}'"
+                            sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/vote-deploy.git HEAD:master"
                         }
                     }
                 }
